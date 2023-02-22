@@ -2,7 +2,7 @@
 import { pokemons } from "./data.js";
 
 //Encontrar Pokemon pelo nome
-const findPokemon = (name) => {
+const findThePokemon = (name) => {
   for (let i = 0; i < pokemons.length; i++) {
     if (pokemons[i].name == name) {
       return pokemons[i];
@@ -12,15 +12,15 @@ const findPokemon = (name) => {
 
 //Listar Pokemons do mesmo tipo
 const sameTypeOfPokemons = (type) => {
-  const pokemonsList = [];
+  const listOfPokemons = [];
 
   for (let i = 0; i < pokemons.length; i++) {
     if (pokemons[i].type.includes(type)) {
-      pokemonsList.push(pokemons[i]);
+      listOfPokemons.push(pokemons[i]);
     }
   }
 
-  return pokemonsList;
+  return listOfPokemons;
 };
 
 //Tradução dos tipos de Pokemons para português
@@ -54,7 +54,7 @@ const translateType = () => {
 };
 
 //Impressões
-console.log(findPokemon("pikachu"));
+console.log(findThePokemon("pikachu"));
 
 console.log(sameTypeOfPokemons("fire"));
 
