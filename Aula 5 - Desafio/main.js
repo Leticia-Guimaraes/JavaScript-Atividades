@@ -11,7 +11,7 @@ const findPokemon = (name) => {
 };
 
 //Listar Pokemons do mesmo tipo
-const sameTypePokemons = (type) => {
+const sameTypeOfPokemons = (type) => {
   const pokemonsList = [];
 
   for (let i = 0; i < pokemons.length; i++) {
@@ -56,7 +56,7 @@ const translateType = () => {
 //Impressões
 console.log(findPokemon("pikachu"));
 
-console.log(sameTypePokemons("fire"));
+console.log(sameTypeOfPokemons("fire"));
 
 translateType();
 console.log(pokemons);
