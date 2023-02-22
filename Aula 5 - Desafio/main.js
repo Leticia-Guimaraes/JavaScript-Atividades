@@ -25,7 +25,7 @@ const sameTypePokemons = (type) => {
 
 //Tradução dos tipos de Pokemons para português
 const translateType = () => {
-  const typesInPortuguese = {
+  const typesIntoPortuguese = {
     normal: "normal",
     fire: "fogo",
     water: "água",
@@ -48,7 +48,7 @@ const translateType = () => {
 
   for (let i = 0; i < pokemons.length; i++) {
     for (let j = 0; j < pokemons[i].type.length; j++) {
-      pokemons[i].type[j] = typesInPortuguese[pokemons[i].type[j]];
+      pokemons[i].type[j] = typesIntoPortuguese[pokemons[i].type[j]];
     }
   }
 };
