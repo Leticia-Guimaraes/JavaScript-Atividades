@@ -2,12 +2,26 @@
 import { pokemons } from "./data.js";
 
 //Encontrar Pokemon pelo nome
-const findThePokemon = (name) =>
-  pokemons.find((pokemon) => pokemon.name === name);
+const findThePokemon = (name) => {
+  for (let i = 0; i < pokemons.length; i++) {
+    if (pokemons[i].name == name) {
+      return pokemons[i];
+    }
+  }
+};
 
 //Listar Pokemons do mesmo tipo
-const sameTypeOfPokemons = (type) =>
-  pokemons.filter((pokemon) => pokemon.type.includes(type));
+const sameTypeOfPokemons = (type) => {
+  const listOfPokemons = [];
+
+  for (let i = 0; i < pokemons.length; i++) {
+    if (pokemons[i].type.includes(type)) {
+      listOfPokemons.push(pokemons[i]);
+    }
+  }
+
+  return listOfPokemons;
+};
 
 //Tradução dos tipos de Pokemons para português
 const translateTheTypes = () => {
@@ -32,10 +46,11 @@ const translateTheTypes = () => {
     fairy: "fada",
   };
 
-  pokemons.forEach(
-    (pokemon) =>
-      (pokemon.type = pokemon.type.map((type) => typesIntoPortuguese[type]))
-  );
+  for (let i = 0; i < pokemons.length; i++) {
+    for (let j = 0; j < pokemons[i].type.length; j++) {
+      pokemons[i].type[j] = typesIntoPortuguese[pokemons[i].type[j]];
+    }
+  }
 };
 
 //Impressões
