@@ -2,29 +2,15 @@
 import { pokemons } from "./data.js";
 
 //Encontrar Pokemon pelo nome
-const findThePokemon = (name) => {
-  for (let i = 0; i < pokemons.length; i++) {
-    if (pokemons[i].name == name) {
-      return pokemons[i];
-    }
-  }
-};
+const findThePokemon = (name) =>
+  pokemons.find((pokemon) => pokemon.name === name);
 
 //Listar Pokemons do mesmo tipo
-const sameTypeOfPokemons = (type) => {
-  const listOfPokemons = [];
-
-  for (let i = 0; i < pokemons.length; i++) {
-    if (pokemons[i].type.includes(type)) {
-      listOfPokemons.push(pokemons[i]);
-    }
-  }
-
-  return listOfPokemons;
-};
+const sameTypeOfPokemons = (type) =>
+  pokemons.filter((pokemon) => pokemon.type.includes(type));
 
 //Tradução dos tipos de Pokemons para português
-const translateType = () => {
+const translateTheTypes = () => {
   const typesIntoPortuguese = {
     normal: "normal",
     fire: "fogo",
@@ -46,11 +32,10 @@ const translateType = () => {
     fairy: "fada",
   };
 
-  for (let i = 0; i < pokemons.length; i++) {
-    for (let j = 0; j < pokemons[i].type.length; j++) {
-      pokemons[i].type[j] = typesIntoPortuguese[pokemons[i].type[j]];
-    }
-  }
+  pokemons.forEach(
+    (pokemon) =>
+      (pokemon.type = pokemon.type.map((type) => typesIntoPortuguese[type]))
+  );
 };
 
 //Impressões
@@ -58,5 +43,5 @@ console.log(findThePokemon("pikachu"));
 
 console.log(sameTypeOfPokemons("fire"));
 
-translateType();
+translateTheTypes();
 console.log(pokemons);
